@@ -96,3 +96,12 @@ Docker Image 是一個**唯讀的模板**，裡面打包了執行一個應用程
 - `uv add --dev pgcli`：`--dev` 代表加進 dev 相依（開發用工具，如 `pgcli`、`jupyter`、`pytest`），不是 production 執行時需要的套件。
   - production image 用 `uv sync --locked --no-install-project` 這類指令預設不會裝 dev 相依，image 更小。
   - 判斷標準：pipeline 程式碼會 `import` 的 → 一般相依；只是開發時自己用（如用 Jupyter 做資料探索）→ `--dev`。
+- `uv run jupyter nbconvert --to=script notebook.ipynb`：把 `notebook.ipynb` 轉成純 `.py` 腳本（`--to=script`），方便把 Jupyter 上寫好的邏輯搬進正式的 pipeline 程式碼；`uv run` 會確保在專案的虛擬環境裡執行（自動用到 `--dev` 裝的 jupyter）。
+- `uv run pgcli -h localhost -p 5431 -u root -d ny_taxi`：用 `pgcli`（比 `psql` 更好用、有語法高亮/自動完成的 CLI）連線到本機 Postgres：
+  - `-h localhost`：連線主機
+  - `-p 5431`：連線埠（對應到跑 postgres container 時對外映射的 port）
+  - `-u root`：登入使用者
+  - `-d ny_taxi`：要連線的資料庫名稱
+  - 一樣透過 `uv run` 執行，用到的是 `uv add --dev pgcli` 裝進虛擬環境的那個工具。
+- `click`：Python 的 CLI 框架套件，用 decorator（`@click.command()` / `@click.option()`）就能把一支腳本的變數變成可從指令列傳入的參數，並自動產生 `--help` 說明、型別轉換（`type=int`）、預設值（`default=`）等功能，不用自己手刻 `argparse`。用 `uv add click` 裝成正式相依（因為 `ingest_data.py` 執行時會 `import click`，不是開發用工具）。
+- `uv run python .\ingest_data.py --help`：在專案虛擬環境裡執行 `ingest_data.py` 並顯示 `--help`，列出 `click` 幫忙自動產生的所有參數說明（`--pg-user`、`--pg-password`、`--pg-host`、`--pg-port`、`--pg-db`、`--target-table`、`--year`、`--month`、`--chunk-size`），可以用來確認參數是否有被正確定義，也可以拿掉 `--help`、帶上實際的值來執行腳本。
