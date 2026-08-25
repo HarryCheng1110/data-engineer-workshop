@@ -83,3 +83,16 @@ Docker Image 是一個**唯讀的模板**，裡面打包了執行一個應用程
 
 > Image 是模板（唯讀），Container 是把模板跑起來後、加上一層可寫層的實體。
 > 刪除 Container 不會影響 Image；但 Image 被刪除前，必須先移除所有以它建立的 Container。
+
+---
+
+# Q&A 筆記（pipeline 專案）2026-08-25
+
+- `docker build -t test:pandas .`：用當前目錄的 Dockerfile build image，命名 `test`、標籤 `pandas`，`.` 是 build context（`COPY` 指令的相對路徑基準）。
+- `docker run -it --rm test:pandas 123`：
+  - `-it`：`-i`（保留 stdin）+ `-t`（分配 tty），讓容器可互動、即時看輸出。
+  - `--rm`：容器跑完自動刪除，不留殘留的 stopped container。
+  - `123` 會傳給 `ENTRYPOINT ["python", "pipeline.py"]` 當參數，等同 `python pipeline.py 123`。
+- `uv add --dev pgcli`：`--dev` 代表加進 dev 相依（開發用工具，如 `pgcli`、`jupyter`、`pytest`），不是 production 執行時需要的套件。
+  - production image 用 `uv sync --locked --no-install-project` 這類指令預設不會裝 dev 相依，image 更小。
+  - 判斷標準：pipeline 程式碼會 `import` 的 → 一般相依；只是開發時自己用（如用 Jupyter 做資料探索）→ `--dev`。
