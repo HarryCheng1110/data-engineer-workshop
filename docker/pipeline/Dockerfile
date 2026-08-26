@@ -23,8 +23,8 @@ COPY src ./src
 # 這次原始碼齊全了，正式把 pipeline 這個 package 本身也 build/安裝進虛擬環境
 RUN uv sync --locked
 
-# 複製獨立的執行腳本 pipeline.py 進 image（跟 src/pipeline package 是不同東西）
-COPY pipeline.py .
+# 複製獨立的執行腳本 ingest_data.py 進 image（跟 src/pipeline package 是不同東西）
+COPY ingest_data.py .
 
-# 容器啟動時預設執行的指令：用虛擬環境裡的 python 執行 pipeline.py
-ENTRYPOINT ["python", "pipeline.py"]
+# 容器啟動時預設執行的指令：用虛擬環境裡的 python 執行 ingest_data.py
+ENTRYPOINT ["python", "ingest_data.py"]
