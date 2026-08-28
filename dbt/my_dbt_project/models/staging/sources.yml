@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "This is the source data for the NYC Taxi Trips dataset."
+    database: taxi_rides_ny
+    schema: prod
+    tables:
+      - name: green_tripdata
+        description: "This table contains the green taxi trip records."
+      - name: yellow_tripdata
+        description: "This table contains the yellow taxi trip records."

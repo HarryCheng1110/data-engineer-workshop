@@ -1,0 +1,9 @@
+
+target/
+dbt_packages/
+logs/
+.env
+
+# Data directory
+data/
+dbt_internal_packages/
