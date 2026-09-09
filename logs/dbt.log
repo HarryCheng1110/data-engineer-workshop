@@ -1,0 +1,32 @@
+[0m14:43:35.663598 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3b1a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b7f7610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b7f79d0>]}
+
+
+============================== 14:43:35.666292 | 11e18b49-ade5-4649-b9dc-c1392532329f ==============================
+[0m14:43:35.666292 [info ] [MainThread]: Running with dbt=1.12.3
+[0m14:43:35.666535 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'use_colors': 'True', 'log_cache_events': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt seed', 'use_experimental_parser': 'False', 'target_path': 'None', 'static_parser': 'True', 'cache_selected_only': 'False', 'hints_enabled': 'True', 'profiles_dir': '/Users/Harry/.dbt', 'printer_width': '80', 'write_json': 'True', 'warn_error': 'None', 'quiet': 'False', 'partial_parse': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'maximum_seed_size_mib': '1', 'debug': 'False', 'indirect_selection': 'eager'}
+[0m14:43:35.666793 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/Harry/personal/data-engineer-workshop/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:43:35.668470 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.048577167, "process_in_blocks": "0", "process_kernel_time": 0.118692, "process_mem_max_rss": "123027456", "process_out_blocks": "0", "process_user_time": 0.550691}
+[0m14:43:35.668664 [debug] [MainThread]: Command `dbt seed` failed at 14:43:35.668628 after 0.05 seconds
+[0m14:43:35.668784 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b845940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b7ce8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b88c270>]}
+[0m14:43:35.668898 [debug] [MainThread]: Flushing usage events
+[0m14:43:36.918894 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:43:45.350403 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d211a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e657610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e6579d0>]}
+
+
+============================== 14:43:45.352935 | 4e1521d8-34a6-4323-b255-b1892cad806a ==============================
+[0m14:43:45.352935 [info ] [MainThread]: Running with dbt=1.12.3
+[0m14:43:45.353175 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'log_cache_events': 'False', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/Harry/.dbt', 'partial_parse': 'True', 'log_format': 'default', 'log_path': 'logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'use_colors': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'static_parser': 'True', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'fail_fast': 'False', 'maximum_seed_size_mib': '1', 'no_print': 'None', 'introspect': 'True', 'write_json': 'True', 'quiet': 'False', 'debug': 'False', 'empty': 'False', 'printer_width': '80', 'invocation_command': 'dbt seed'}
+[0m14:43:45.353438 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/Harry/personal/data-engineer-workshop/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:43:45.354741 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.044060543, "process_in_blocks": "0", "process_kernel_time": 0.105018, "process_mem_max_rss": "122961920", "process_out_blocks": "0", "process_user_time": 0.530091}
+[0m14:43:45.354944 [debug] [MainThread]: Command `dbt seed` failed at 14:43:45.354907 after 0.04 seconds
+[0m14:43:45.355075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e6a5940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e62e8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e6f4270>]}
+[0m14:43:45.355192 [debug] [MainThread]: Flushing usage events
+[0m14:43:46.174337 [debug] [MainThread]: An error was encountered while trying to flush usage events

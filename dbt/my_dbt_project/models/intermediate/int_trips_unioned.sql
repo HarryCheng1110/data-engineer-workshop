@@ -9,4 +9,4 @@ trips_unioned AS (
     UNION ALL
     SELECT * FROM yellow_tripdata
 )
-SELECT * FROM trips_unioned LIMIT 10
+SELECT * FROM trips_unioned
