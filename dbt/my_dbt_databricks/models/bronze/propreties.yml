@@ -1,0 +1,6 @@
+version: s
+
+models:
+    - name: bronze_date
+      config:
+        materialized: table
