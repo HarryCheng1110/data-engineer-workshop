@@ -1,0 +1,19 @@
+my_dbt_databricks:
+  outputs:
+    dev:
+      catalog: dbt_tutorial_dev
+      host: dbc-c8082537-2836.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/4b99679cc6875b78
+      schema: default
+      threads: 1
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+    prod:
+      catalog: dbt_tutorial_prod
+      host: dbc-c8082537-2836.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/4b99679cc6875b78
+      schema: default
+      threads: 1
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
